@@ -1,0 +1,227 @@
+
+<!DOCTYPE html>
+<html>
+
+
+<head>
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>Site</title>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/paho-mqtt/1.0.1/mqttws31.js" type="text/javascript"></script>
+
+  {%load static%}
+  <script src="{% static 'myScript.js'%}"></script>
+  <link rel="stylesheet" type="text/css" href="{% static 'site.css'%}" />
+  
+</head>
+
+<body class="grid-container">
+
+<div class="day">
+
+    <p class="header">Monday</p>
+    <div class="dayevent" id="Day1"></div>    
+    
+</div>
+
+
+
+<div class="day">
+
+    <p class="header">Tuesday</p>
+    <div class="dayevent" id="Day2"></div>
+
+</div>
+
+
+
+<div class="day">
+
+    <p class="header">Wednesday</p>
+    <div class="dayevent" id="Day3"></div>
+
+</div>
+
+
+
+<div class="lightstate">
+</div>
+
+
+
+<div class="Devices">
+
+    <div><img src="{% static '3DPrinter.png'%}"/></div>
+    <div><img src="{% static '3DPrinter.png'%}"/></div>
+    <div><img src="{% static '3DPrinter.png'%}"/></div>
+    <div><img src="{% static '3DPrinter.png'%}"/></div>
+    <div><img src="{% static '3DPrinter.png'%}"/></div>
+    <div><img src="{% static '3DPrinter.png'%}"/></div>
+    <div><img src="{% static '3DPrinter.png'%}"/></div>
+    <div><img src="{% static '3DPrinter.png'%}"/></div>
+
+</div>
+
+
+
+<div class="doorsensor">
+    <div class="LockGrid">
+        
+        <div class="LockState">
+            <div class="LockCssFlex">
+                <div class="half-circle"></div>
+                <div class="bottomlock"></div>
+            </div>
+        </div>
+
+        <div class="LockFlex">
+            <div class="Door">Main</div>   
+            <div class="Door">Outside</div>            
+            <div class="Door">Room</div>
+        </div>
+
+    </div>
+</div>
+
+
+
+<div class="lightstate">
+    <div class="LightGrid">
+       
+        <div class="CurrentLightsFlex">
+            <span class="dot"></span>
+        </div>
+
+        <div class="AllLightsFlex">
+            <div class="Light">Bedroom</div>   
+            <div class="Light">Hallway</div>            
+            <div class="Light">Outside</div>
+        </div>
+
+    </div>
+</div>
+
+
+
+<div class="food">
+
+    <div class="FoodSection">
+        <img class="FoodImage" src="{%static 'Pizza.jpg'%}">
+        <div class="FoodDesc">  
+            <span class="FoodTitle">Coconut Cookies</span>
+            <span class="Macros">Macros</span>
+            <span class="Protein">30</span>
+            <span class="Fats">5</span>
+            <span class="Lipids">8</span>
+        </div>
+    </div>
+
+    <div class="FoodSection">
+        <img class="FoodImage" src="{%static 'Pizza.jpg'%}">
+        <div class="FoodDesc"> 
+            <span class="FoodTitle">Coconut Cookies</span>
+            <span class="Macros">Macros</span>
+            <span class="Protein">30</span>
+            <span class="Fats">5</span>
+            <span class="Lipids">8</span>
+        </div>
+    </div>
+
+    <div class="FoodSection">
+        <img class="FoodImage" src="{%static 'Pizza.jpg'%}">
+        <div class="FoodDesc"> 
+            <span class="FoodTitle">Coconut Cookies</span>
+            <span class="Macros">Macros</span>
+            <span class="Protein">30</span>
+            <span class="Fats">5</span>
+            <span class="Lipids">8</span>
+        </div>
+    </div>
+
+    <div class="FoodSection">
+        <img class="FoodImage" src="{%static 'Pizza.jpg'%}">
+        <div class="FoodDesc"> 
+            <span class="FoodTitle">Coconut Cookies</span>
+            <span class="Macros">Macros</span>
+            <span class="Protein">30</span>
+            <span class="Fats">5</span>
+            <span class="Lipids">8</span>
+        </div>   
+    </div>
+
+</div>
+
+
+
+
+<div class="clothing">
+    <div class="ClothingGrid">
+        
+        <div class="clothingitem"> 
+            <img src="{% static 'Shirt.jpg'%}">
+        </div>
+        
+        <div class="clothingitem">
+            <img src="{% static 'Shirt.jpg'%}">
+        </div>
+    
+        <div class="clothingitem">
+            <img src="{% static 'Shirt.jpg'%}">
+        </div>  
+    
+        <div class="clothingitem">
+            <img src="{% static 'Shirt.jpg'%}">
+        </div>
+
+    </div>
+</div>
+
+
+
+<div class="Spotify">
+    <div class="SpotifyGrid">
+
+        <div class="AlbumImg">
+            <img id="AlbumImg" src="https://upload.wikimedia.org/wikipedia/en/6/6a/ASAP_Rocky_Testing.jpg"/>
+        </div>
+
+        <div class="PlayingNowFlex">
+            <div class="TrackInfo">
+                <span id="TrackName">Distorted Records</span>
+                <span id="AlbumName">Testing</span>
+                <span id="ArtistName">A$AP ROCKY</span> 
+                <p>Next</p>   
+            </div>  
+
+            <div class="NextInfo">  
+                <img id="NextAlbumImg" src="https://upload.wikimedia.org/wikipedia/en/6/6a/ASAP_Rocky_Testing.jpg"/>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+
+<div class="weather">
+    <div class="whatdoimean">
+
+        <div class="bigC">
+            <span id="apiC">4</span>|<span id="mqttC">4</span>
+        </div>
+
+        <div class="maxminC">
+            <span>Max</span><span id="maxC">8</span>
+            <span>Min</span><span id="minC">3</span>
+        </div>
+
+        <div class="tempname">
+            <img src="http://openweathermap.org/img/wn/04d@2x.png">
+            <span id="weather">Cloudy<span>
+        </div>
+        
+    </div>
+</div>
+
+</body>
+</html>

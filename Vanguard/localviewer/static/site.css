@@ -1,0 +1,551 @@
+* {margin: 0;padding: 0;}
+
+.grid-container {
+  background: black;
+  font-family: 'Aceh Soft Med';
+  margin: 1%;
+  height: 97dvh;
+  width: 98dvw;
+  
+  display: grid;
+  grid-template-columns: repeat(12, minmax(0, 1fr));
+  grid-template-rows: repeat(12, minmax(0, 1fr)); 
+
+  column-gap: 1%;
+  row-gap: 2%;
+
+  overflow: hidden;
+}
+
+.day{
+  background: black;
+  border-radius: 1vh;
+  height: 100%;
+
+  grid-column: span 2;
+  grid-row: span 8;
+
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  text-align: center;
+}
+
+.day .header{
+  background-color: #274684;
+  margin-bottom: .32rem;
+  border-radius: 1vh;
+
+  font-size: 2rem;
+}
+
+.dayevent{
+  display: flex;
+  flex-direction: column;
+  overflow-x: hidden;
+  overflow-y: scroll;
+  align-items: center;
+
+  height: min-content;
+  width: 100%;
+}
+
+.event{
+  background-color: #b9d5fd;
+  border-radius: 1vh;
+  overflow-y: hidden;
+  overflow-x: hidden;
+
+  height: min-content;
+  width: 100%;
+  margin-bottom: .32rem;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  text-align: center;
+  
+}
+
+.eventtitle{
+  background-color: #274684;  
+  width: 100%;
+  border-top-right-radius: 1vh;
+  border-top-left-radius: 1vh;
+  min-height: 1.75rem;
+  height: 100%;
+  max-height:  1.75rem;
+  padding: .065em;
+  letter-spacing: .2em;
+  font-size: 1.75rem;
+  -webkit-text-stroke: .2px white;
+}
+            
+.eventtime{
+  background-color: #709fdc;
+  width: 100%;
+  height: 100%;
+  min-height: 1rem;
+  max-height: 12rem;
+  padding: .065em;
+  letter-spacing: .2em;
+  font-size: 1rem;
+  -webkit-text-stroke: .2px white;
+}
+
+.eventdesc{
+  text-align: center;
+  height: min-content;
+}
+
+.freetime{
+  background-color: #709fdc;
+  border-radius: 1dvh;
+  margin-bottom: .32rem;
+  padding: 1dvh;
+  width: 90%;
+
+  text-align: center;
+}
+
+.end{
+  background-color: #709fdc;
+  border-top-right-radius: 1vh;
+  border-top-left-radius: 1vh;
+
+  width: 100%;
+  height: 100%;
+
+
+  text-align: center;
+}
+
+
+
+
+.Devices{
+  border-radius: 1dvh;
+
+  grid-column: span 3;
+  grid-row:  span 3;
+  height: 100%;
+
+  display: grid;
+  grid-template-rows:  minmax(0, 1fr) minmax(0, 1fr);
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr) minmax(0, 1fr) minmax(0, 1fr);
+  align-items: center;
+  justify-content: center;
+}
+
+.Devices img{
+  height: 8dvh;
+  border-radius: 1dvh;
+}
+
+.Devices div{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+
+.lightstate{
+  border-radius: 1vh;
+
+  grid-column: span 3;
+  grid-row:  span 3;
+  height: 100%;
+}
+
+.LightGrid{
+  border-radius: 1vh;
+
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  grid-template-rows: minmax(0, 1fr); 
+
+  column-gap: 1%;
+  row-gap: 2%;
+
+  overflow: hidden;
+  max-height: 22.4dvh;
+}
+
+
+.CurrentLightsFlex{
+  flex-grow: 3;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  font-size: 1.65rem;
+}
+
+.AllLightsFlex{
+  display: flex;
+  flex-direction: column;
+  row-gap: 1rem;
+  max-height: 22.4dvh;
+  height: 23dvh;
+  justify-content: center;
+
+}
+
+.Light{
+  display: flex;
+  height: 20dvh;
+  width: 11.8dvw;
+  background:#071739;
+  font-size: 2rem;
+
+  border-radius: 1dvh;
+  align-items: center;
+  justify-content: center;
+}
+
+.dot {
+  height: 15dvh;
+  width: 15dvh;
+  background-color: #bbb;
+  border-radius: 50%;
+  margin: 1dvh;
+}
+
+#on{
+  background: #b9d5fd;
+}
+
+
+
+
+
+
+
+.clothing{
+  grid-column: 10/13;
+
+  grid-row:  7 / 14;
+
+  border-radius: 1vh;
+}
+
+.ClothingGrid{
+height: 48.4dvh;
+
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
+  align-items: center;
+  text-align: center;
+  font-size: 2rem;
+  gap: 1rem;
+}
+
+.clothingitem{
+  height: 10dvw;
+  grid-row: span 1;
+  grid-column: span 1;
+}
+
+.clothingitem img{
+  height: 100%;
+  border-radius: 1vh;
+}
+
+
+
+
+.food{
+  grid-column: 7 / 10;
+  grid-row:  7 / 14;
+
+  border-radius: 1vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between; 
+  gap: 1%;
+}
+
+.FoodSection{
+  border-radius: 1vh;
+  background-color: #071739;
+  height: 5rem;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  margin: 0;
+}
+
+
+
+.FoodDesc{
+  height: 100%;
+  flex-grow: 4;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
+  align-items: center;
+  text-align: center;
+  font-size: 2rem;
+  align-content: center;
+}
+
+.FoodTitle{
+  grid-column: 1 / 5;
+  grid-row: 1 / 2;
+
+  margin: 0;
+}
+
+.Macros{
+  grid-column: span 1;
+  grid-row: 2 / 3;
+}
+
+.Protein{
+  grid-column: span 1;
+  grid-row: 2 / 3;
+}
+
+.Fats{
+  grid-column: span 1;
+  grid-row: 2 / 3;
+
+}
+
+.Lipids{
+  grid-column: span 1;
+  grid-row: 2 / 3;
+}
+
+.FoodImage {
+  height: 90%;
+  border-radius: 1dvh;
+  padding: 1%;
+}
+
+.Lunch{
+  border-radius: 1vh;
+  background-color: #709fdc;
+  height: 5rem;
+  width: 100%;
+}
+.Supper{
+  border-radius: 1vh;
+  background-color: #709fdc;
+  height: 5rem;
+  width: 100%;
+
+}
+.Dinner{
+  border-radius: 1vh;
+  background-color: #b9d5fd;
+  height: 5rem;
+  width: 100%;
+}
+
+
+.weather{
+  border-radius: 1vh;
+
+  grid-column: span 2 ;
+  grid-row: 9 / 14;
+}
+
+.whatdoimean{
+  gap: 1vh;
+  height:100%;  
+  font-size: 2em;
+
+
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.whatdoimean .bigC {
+  background: #071739;
+  border-radius: 1dvh;
+
+
+  display: flex;
+  flex-direction: row;
+  overflow: hidden;
+  justify-content: space-evenly;
+  align-content: stretch;
+  align-items: center;
+
+  font-size: 5vw;
+}
+
+
+.whatdoimean .maxminC {
+  background-color: #071739;
+  border-radius: 1vh;
+  letter-spacing: .1em;
+  
+  display: flex;
+  flex-direction: row;
+  overflow: hidden;
+  justify-content: space-evenly;
+  align-content: stretch;
+  align-items: center;
+}
+
+.whatdoimean .tempname {  
+  display: flex;
+  flex-direction: row;
+  overflow: hidden;
+  justify-content: space-evenly;
+  align-content: stretch;
+  align-items: center;
+
+  position: relative;
+  right: 0;
+  background-color: #071739;
+  border-radius: 1vh;
+}
+
+.whatdoimean .tempname img{
+  float: left; 
+  size: 100%;
+}
+
+
+#mqttC{
+  opacity: 0.8;
+}
+
+
+
+.doorsensor {
+  right: 0;
+  border-radius: 1vh;
+  grid-column: span 3;
+  grid-row: span 3;
+
+
+  border-radius: 1vh;
+
+
+}
+
+.LockGrid{
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  grid-template-rows: minmax(0, 1fr); 
+
+  column-gap: 1%;
+  row-gap: 2%;
+
+  overflow: hidden;
+  max-height: 22.4dvh;
+}
+
+.LockCssFlex{
+  display:flex;
+  flex-direction: column;
+  height:  22.4dvh;
+  max-height: 22.4dvh;
+
+  width: 200px;
+  justify-content: center;
+  align-items: center;
+}
+
+.half-circle {
+    width: 2dvw;
+    height: 3dvh;
+    border-top-left-radius: 5dvh;
+    border-top-right-radius: 5dvh;
+    border: 1dvh solid #63a583;
+}
+
+.bottomlock {
+    width: 5dvw;
+    height:  5dvh;
+    border-radius:20px;
+    border: 1dvh solid #63a583;
+    margin-top: -1dvh;
+}
+
+.LockFlex{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  row-gap: 1rem;
+  font-size: 1.65rem;
+  height: 100%;
+  max-height: 22.4dvh;
+  height: 23dvh;
+  justify-content: center;
+}
+
+.Door {
+  display: flex;
+  height: 20dvh;
+  width: 11.8dvw;
+  background:#071739;
+  font-size: 2rem;
+
+  border-radius: 1dvh;
+  align-items: center;
+  justify-content: center;
+}
+
+
+
+.Spotify{
+  border-radius: 1vh;
+  grid-column: span 4;
+  grid-row: 9 / 14 ;
+  font-size: 1.4rem;
+  height: 30dvh;
+}
+
+.SpotifyGrid{
+  display: grid;
+  grid-template-columns: repeat(5, minmax(1fr, 1fr));
+  grid-template-rows: minmax(1fr, 1fr);
+}
+
+.AlbumImg{
+  grid-column: 1 / 4;
+  grid-row: 1 / 2;
+  border-radius: 1dvh;
+  height: 32dvh;
+}
+
+
+.AlbumImg Img{
+  border-radius: 1dvh;
+  height: 31.5dvh;
+}
+
+
+.PlayingNowFlex{
+  grid-column: 4 / 6;
+  grid-row: 1/2;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  justify-items: center;
+  height: 31.95dvh;
+}
+
+.TrackInfo{
+  background: #63a583;
+  border-radius: 1dvh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  justify-items: center;
+  text-align: center;
+}
+
+
+.NextInfo img{
+  border-radius: 1dvh;
+  width: 11.5dvw;
+}
