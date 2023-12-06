@@ -23,6 +23,7 @@ chatSocket.onopen = function(e) {
   chatSocket.send("FCPV")
 }
 chatSocket.onmessage = function(e) {
+  console.log(e.data);
   let data = JSON.parse(e.data);
   console.log(data);
 }
@@ -33,7 +34,7 @@ chatSocket.onmessage = function(e) {
 
 
 
-let serverlocation = '10.0.0.232'
+let serverlocation = 'localhost'
 let serverport = 9001
 client = new Paho.MQTT.Client(serverlocation, serverport, "clientId");
 
@@ -41,9 +42,9 @@ client.onConnectionLost = onConnectionLost;
 client.onMessageArrived = onMessageArrived;
 
 client.connect({onSuccess:onConnect});
-
 function onConnect() {
-  client.subscribe("sensorstate");
+  client.subscribe("esp32/output");
+  client.subscribe("sensors");
 }
 
 function onConnectionLost(responseObject) {
@@ -53,5 +54,17 @@ function onConnectionLost(responseObject) {
 }
 
 function onMessageArrived(message) {
-  console.log(message);
+  
+  if(message.payloadString=="off"){
+    document.getElementById('Bedroom').style.backgroundColor = "#071739";
+    document.getElementById('lightdot').style.display = "none";
+    console.log(message.payloadString);
+  }
+
+  if(message.payloadString=="on"){
+    document.getElementById('Bedroom').style.backgroundColor = "#709fdc";
+    document.getElementById('lightdot').style.display = "inline";
+    console.log(message.payloadString);
+  }
+
 }

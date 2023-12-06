@@ -45,12 +45,17 @@ INSTALLED_APPS = [
 ASGI_APPLICATION = 'Vanguard.asgi.application'
 
 CHANNEL_LAYERS = {
+#    'default': {
+#        'BACKEND': 'channels_redis.core.RedisChannelLayer',
+#        "CONFIG": {
+#            "hosts": [('localhost', 6379)],
+#        },
+#    },
     'default': {
-        'BACKEND': 'channels_redis.core.RedisChannelLayer',
-        "CONFIG": {
-            "hosts": [('localhost', 6379)],
-        },
+        'BACKEND': 'channels.layers.InMemoryChannelLayer',
     },
+
+
 }
 
 MIDDLEWARE = [

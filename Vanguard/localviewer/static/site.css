@@ -206,9 +206,10 @@
 .dot {
   height: 15dvh;
   width: 15dvh;
-  background-color: #bbb;
+  background-color: #FFA757;
   border-radius: 50%;
   margin: 1dvh;
+  display: none;
 }
 
 #on{
