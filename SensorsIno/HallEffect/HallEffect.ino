@@ -7,9 +7,9 @@ long sensorid = 0x0000, ownerid = 0x7FFFFFFF;
 byte type = 0xf0, payload = 0xF0;
 char msg[30];
 
-const char* ssid = "SHAW-1267";
-const char* password = "basic6934bridge";
-const char* mqtt_server = "10.0.0.232";
+const char* ssid = "MARKTOP";
+const char* password = "catsoupisnice";
+const char* mqtt_server = "192.168.137.1";
 WiFiClient espClient;
 PubSubClient client(espClient);
 
@@ -49,14 +49,15 @@ void loop() {
   if (!client.connected()) {
     reconnect();
   }
-  client.loop();
 
+  client.loop();
   soup = digitalRead(12);
   
   if(soup != notsoup){
-  }
-
+    payload = soup;
     sprintf(msg, "%010d%010d%02x%02X", sensorid, ownerid, type, payload);
     client.publish("sensors", msg);
-    delay(1000);
+    notsoup = soup;
+  }
+
 }

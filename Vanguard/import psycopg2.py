@@ -1,9 +1,11 @@
 from paho.mqtt import client as mqtt_client
 import os, django 
+from django.apps import AppConfig
+from django.core.signals import setting_changed
 
 PROJECT_NAME = 'Vanguard'
 
-broker = '10.0.0.232'
+broker = 'localhost'
 port = 1883
 topic = "sensors"
 client_id = f'django'
@@ -21,15 +23,20 @@ def connect_mqtt() -> mqtt_client:
 
 def subscribe(client: mqtt_client):
     def on_message(client, userdata, msg):
-        payload = msg.payload.decode()
-        global sensorid, ownerid, sensortype, sensorpayload
-        sensorid = payload[0:10]
-        ownerid = payload[10:20]
-        sensortype = int(payload[20:22], 16)
-        sensorpayload = int(payload[22:24], 16)
-        sensorimport = sensor(SensorId=sensorid, OwnerId=ownerid, type=sensortype, payload=sensorpayload)
-        sensorimport.save()
+        try: 
+            payload = msg.payload.decode()
+            global sensorid, ownerid, sensortype, sensorpayload
+            sensorid = payload[0:10]
+            ownerid = payload[10:20]
+            sensortype = int(payload[20:22], 16)
+            sensorpayload = int(payload[22:24], 16)
+            sensorimport = sensor(SensorId=sensorid, OwnerId=ownerid, type=sensortype, payload=sensorpayload)
+            sensorimport.save()
+            print(payload)
+        except: 
+            print(payload)
     client.subscribe(topic)
+    client.subscribe("esp32/output")
     client.on_message = on_message
 
 def run():

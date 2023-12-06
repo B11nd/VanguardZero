@@ -1,5 +1,8 @@
 from django.db import models
-
+from django.db.models.signals import post_save
+from django.dispatch import receiver
+from asgiref.sync import async_to_sync
+from channels.layers import get_channel_layer
 # Create your models here.
     
 class fridge(models.Model):
@@ -33,3 +36,10 @@ class plates(models.Model):
     Ingredients = models.CharField(max_length=50)
     CookingTime = models.IntegerField()
     Type = models.IntegerField()
+
+
+
+#@receiver(post_save, sender=sensor)
+#def update_dashboard(sender, instance: sensor, **kwargs):
+#    channel_layer = get_channel_layer()
+#    async_to_sync(channel_layer.group_send)("chat", {"type": "chat.message", "message": "message"})
