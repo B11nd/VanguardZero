@@ -4,11 +4,18 @@ const getweather = async () => {
   const response = await fetch(weather_api_url);
   notsoup = await response.json();
   if (response.ok) {
-    console.log(notsoup.main.temp.toPrecision(2)); // Get JSON value from the response body
-    console.log(notsoup.main.temp_min.toPrecision(2)); // Get JSON value from the response body
-    console.log(notsoup.main.temp_max.toPrecision(2)); // Get JSON value from the response body
-    console.log(notsoup.weather[0].main); // Get JSON value from the response body
-    console.log(notsoup.weather[0].icon); // Get JSON value from the response body
+    let apic = notsoup.main.temp.toPrecision(1);
+    let maxC = notsoup.main.temp_max.toPrecision(1);
+    let minC = notsoup.main.temp_min.toPrecision(1);
+    let weather = notsoup.weather[0].main;
+    let weatherimg = notsoup.weather[0].icon;
+
+    document.getElementById('weatherimg').src = "http://openweathermap.org/img/wn/"+weatherimg+"@2x.png";
+
+    document.getElementById('apiC').innerHTML = apic;
+    document.getElementById('maxC').innerHTML = maxC;
+    document.getElementById('minC').innerHTML = minC;
+    document.getElementById('weather').innerHTML = weather;
     return
   }
 }
@@ -22,10 +29,8 @@ chatSocket.onopen = function(e) {
   console.log("Websocket Open");
   chatSocket.send("FCPV")
 }
-chatSocket.onmessage = function(e) {
-  console.log(e.data);
-  let data = JSON.parse(e.data);
-  console.log(data);
+chatSocket.onmessage = function(event){
+  console.log("client says server message received:")
 }
 
 
@@ -54,17 +59,33 @@ function onConnectionLost(responseObject) {
 }
 
 function onMessageArrived(message) {
-  
-  if(message.payloadString=="off"){
+
+  if(message.payloadString=="on"){
     document.getElementById('Bedroom').style.backgroundColor = "#071739";
     document.getElementById('lightdot').style.display = "none";
     console.log(message.payloadString);
   }
-
-  if(message.payloadString=="on"){
+  else if(message.payloadString=="off"){BedroomLight
     document.getElementById('Bedroom').style.backgroundColor = "#709fdc";
     document.getElementById('lightdot').style.display = "inline";
     console.log(message.payloadString);
   }
 
+  else if(message.payloadBytes[0]==48){
+    if (message.payloadBytes[23]==48){
+      document.getElementById('BedroomLight').style.backgroundColor = "#071739";
+      document.getElementById('LockTop').style.borderColor = "#63a583";
+      document.getElementById('LockBottom').style.borderColor = "#63a583";
+    }
+    else if(message.payloadBytes[23]==49){
+      document.getElementById('BedroomLight').style.backgroundColor = "#709fdc";
+      document.getElementById('LockTop').style.borderColor = "red";
+      document.getElementById('LockBottom').style.borderColor = "red";
+    }
+  }
+}
+
+ function ShowNav(){  
+  var menubutton = document.getElementById('cornerbutton');
+  menubutton.style.backgroundColor = "red"; 
 }

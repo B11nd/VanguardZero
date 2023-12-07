@@ -424,11 +424,7 @@ height: 48.4dvh;
   border-radius: 1vh;
   grid-column: span 3;
   grid-row: span 3;
-
-
   border-radius: 1vh;
-
-
 }
 
 .LockGrid{
@@ -454,20 +450,26 @@ height: 48.4dvh;
   align-items: center;
 }
 
+#LockTop{
+  border: 1dvh solid #63a583;
+}
+
+#LockBottom{
+  border: 1dvh solid #63a583;
+}
+
 .half-circle {
     width: 2dvw;
     height: 3dvh;
     border-top-left-radius: 5dvh;
     border-top-right-radius: 5dvh;
-    border: 1dvh solid #63a583;
 }
 
 .bottomlock {
     width: 5dvw;
     height:  5dvh;
     border-radius:20px;
-    border: 1dvh solid #63a583;
-    margin-top: -1dvh;
+    margin-top: -.9dvh;
 }
 
 .LockFlex{
@@ -549,4 +551,30 @@ height: 48.4dvh;
 .NextInfo img{
   border-radius: 1dvh;
   width: 11.5dvw;
+}
+
+#cornerbutton{
+  background: white;
+  height: 7dvh;
+  width: 7dvh;
+  border-radius: 50%;
+
+  position:absolute;
+  right: 5vw;
+  bottom:5vh;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  line-height: 0px;
+}
+
+#cornerbutton li{
+  position: absolute;
+  z-index: 0;
+}
+
+#cornerbutton img{
+  z-index: 1;
+  background: white;
 }

@@ -40,6 +40,9 @@ class plates(models.Model):
 
 
 @receiver(post_save, sender=sensor)
-def update_dashboard(sender, instance: sensor, **kwargs):
+async def update_dashboard(sender, instance: sensor, **kwargs):
     channel_layer = get_channel_layer()
-    async_to_sync(channel_layer.group_send)("chat", {"type": "chat.message", "message": "message"})
+    await channel_layer.group_send(
+        "my_channel",
+        {"type": "chat.system_message", "text": "announcement_text"},
+    )

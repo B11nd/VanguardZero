@@ -9,6 +9,7 @@
   <meta name="viewport" content="width=device-width">
   <title>Site</title>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/paho-mqtt/1.0.1/mqttws31.js" type="text/javascript"></script>
+  <script src="https://unpkg.com/feather-icons"></script>
 
   {%load static%}
   <script src="{% static 'myScript.js'%}"></script>
@@ -20,7 +21,7 @@
 
 <div class="day">
 
-    <p class="header">Monday</p>
+    <p class="header">{{ todayname }}</p>
     <div class="dayevent" id="Day1"></div>    
     
 </div>
@@ -29,7 +30,7 @@
 
 <div class="day">
 
-    <p class="header">Tuesday</p>
+    <p class="header">{{ tomorrowname }}</p>
     <div class="dayevent" id="Day2"></div>
 
 </div>
@@ -38,7 +39,7 @@
 
 <div class="day">
 
-    <p class="header">Wednesday</p>
+    <p class="header">{{ tomorrowername }}</p>
     <div class="dayevent" id="Day3"></div>
 
 </div>
@@ -70,13 +71,13 @@
         
         <div class="LockState">
             <div class="LockCssFlex">
-                <div class="half-circle"></div>
-                <div class="bottomlock"></div>
+                <div class="half-circle" id="LockTop"></div>
+                <div class="bottomlock" id="LockBottom"></div>
             </div>
         </div>
 
         <div class="LockFlex">
-            <div class="Door">Main</div>   
+            <div class="Door" id="BedroomLight">Bedroom</div>   
             <div class="Door">Outside</div>            
             <div class="Door">Room</div>
         </div>
@@ -207,21 +208,40 @@
     <div class="whatdoimean">
 
         <div class="bigC">
-            <span id="apiC">4</span>|<span id="mqttC">4</span>
+            <span id="apiC"></span>|<span id="mqttC">4</span>
         </div>
 
         <div class="maxminC">
-            <span>Max</span><span id="maxC">8</span>
-            <span>Min</span><span id="minC">3</span>
+            <span>Max</span><span id="maxC"></span>
+            <span>Min</span><span id="minC"></span>
         </div>
 
         <div class="tempname">
-            <img src="http://openweathermap.org/img/wn/04d@2x.png">
-            <span id="weather">Cloudy<span>
+            <img src="" id="weatherimg">
+            <span id="weather"><span>
         </div>
         
     </div>
 </div>
+
+
+<button onclick="ShowNav()" id="cornerbutton">
+
+    <img src="{% static 'menu.svg'%}">
+
+    <li>
+        <img src="{% static 'plus.svg'%}">
+    </li>
+   
+    <li>
+        <img src="{% static 'edit-2.svg'%}">
+    </li>
+
+    <li>
+        <img src="{% static 'settings.svg'%}">
+    </li>
+
+</button>
 
 </body>
 </html>
