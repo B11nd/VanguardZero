@@ -4,9 +4,9 @@ const getweather = async () => {
   const response = await fetch(weather_api_url);
   notsoup = await response.json();
   if (response.ok) {
-    let apic = notsoup.main.temp.toPrecision(1);
-    let maxC = notsoup.main.temp_max.toPrecision(1);
-    let minC = notsoup.main.temp_min.toPrecision(1);
+    let apic = parseInt(notsoup.main.temp);
+    let maxC = parseInt(notsoup.main.temp_max);
+    let minC = parseInt(notsoup.main.temp_min);
     let weather = notsoup.weather[0].main;
     let weatherimg = notsoup.weather[0].icon;
 
@@ -104,6 +104,8 @@ function AddEditMenu(){
 }
 
 function AddSettingMenu(){  
+  addmenu = document.getElementById('settingsmenu');
+  addmenu.classList.toggle('menuactive');
 }
 
 function eventadd(){

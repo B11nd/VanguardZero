@@ -231,7 +231,7 @@
 
     <button onclick="AddAddMenu();" class="submenu"><img src="{% static 'plus.svg'%}"></button>
    
-    <a href="http://127.0.0.1:8000/editviewer" class="submenu" ><img src="{% static 'edit-2.svg'%}"></a>
+    <a href="http://127.0.0.1:8000/editviewer" class="submenu" ><img style="padding:15%" src="{% static 'edit-2.svg'%}"></a>
 
     <button onclick="AddSettingMenu()" class="submenu"><img src="{% static 'settings.svg'%}"></button>
 
@@ -258,6 +258,33 @@
             <button onclick="AddAddMenu(); ShowNav();">Cancel</button> <input type="submit" class="submitbutton"></input>
         </div>
     </form>
+
+</div>
+
+<div id="settingsmenu" class="submenu">
+    
+    <div id="menulocation">
+        <button onclick="eventadd()">Main</button> 
+    </div>
+    
+    
+    <div class="submenu" id="mainmenu">
+        <p>Event Name</p>
+        <input type="text" id="name"/>
+        <p>Date-Time</p>
+        <input type="datetime-local" id="name"/>
+        <p>Event Description</p>
+        <input type="text" id="name" style="height:10dvh"/>
+    </div>
+
+    <div class="submenu" id="musicmenu">
+        <p>Event Name</p>
+        <input type="text" id="name"/>
+        <p>Date-Time</p>
+        <input type="datetime-local" id="name"/>
+        <p>Event Description</p>
+        <input type="text" id="name" style="height:10dvh"/>
+    </div>
 
 </div>
 
