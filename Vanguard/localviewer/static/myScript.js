@@ -59,7 +59,6 @@ function onConnectionLost(responseObject) {
 }
 
 function onMessageArrived(message) {
-
   if(message.payloadString=="on"){
     document.getElementById('Bedroom').style.backgroundColor = "#071739";
     document.getElementById('lightdot').style.display = "none";
@@ -85,7 +84,29 @@ function onMessageArrived(message) {
   }
 }
 
- function ShowNav(){  
-  var menubutton = document.getElementById('cornerbutton');
-  menubutton.style.backgroundColor = "red"; 
+function ShowNav(){  
+  var mainmenubutton = document.getElementById('mainmenubnt');
+  var menubutton = document.getElementsByClassName('submenu');
+  
+  mainmenubutton.src =  mainmenubutton.src == 'http://127.0.0.1:8000/static/menu.svg' ? 'http://127.0.0.1:8000/static/x.svg' : 'http://127.0.0.1:8000/static/menu.svg';
+  
+  menubutton[0].classList.toggle('active');
+  menubutton[1].classList.toggle('active'); 
+  menubutton[2].classList.toggle('active'); 
+}
+
+function AddAddMenu(){  
+  addmenu = document.getElementById('addmenu');
+  addmenu.classList.toggle('menuactive');
+}
+
+function AddEditMenu(){  
+}
+
+function AddSettingMenu(){  
+}
+
+function eventadd(){
+  eventaddmenu = document.getElementById("eventaddform");
+  eventaddmenu.classList.toggle('menuactive');
 }

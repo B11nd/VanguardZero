@@ -173,8 +173,6 @@
 
 
 .CurrentLightsFlex{
-  flex-grow: 3;
-
   display: flex;
   flex-direction: column;
   justify-content: space-around;
@@ -409,7 +407,6 @@ height: 48.4dvh;
 
 .whatdoimean .tempname img{
   float: left; 
-  size: 100%;
 }
 
 
@@ -475,10 +472,8 @@ height: 48.4dvh;
 .LockFlex{
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
   row-gap: 1rem;
   font-size: 1.65rem;
-  height: 100%;
   max-height: 22.4dvh;
   height: 23dvh;
   justify-content: center;
@@ -508,8 +503,6 @@ height: 48.4dvh;
 
 .SpotifyGrid{
   display: grid;
-  grid-template-columns: repeat(5, minmax(1fr, 1fr));
-  grid-template-rows: minmax(1fr, 1fr);
 }
 
 .AlbumImg{
@@ -553,15 +546,19 @@ height: 48.4dvh;
   width: 11.5dvw;
 }
 
-#cornerbutton{
-  background: white;
-  height: 7dvh;
-  width: 7dvh;
+#menubutton{
+  background: black;
+  height: 10dvh;
+  width: 10dvh;
+  border: .35dvh solid #071739;
   border-radius: 50%;
+  
+  outline: #071739 outset .5dvh;
+  outline-offset:  .3dvh;
 
   position:absolute;
-  right: 5vw;
-  bottom:5vh;
+  right: 3dvw;
+  bottom: 3dvh;
 
   display: flex;
   align-items: center;
@@ -569,12 +566,159 @@ height: 48.4dvh;
   line-height: 0px;
 }
 
-#cornerbutton li{
-  position: absolute;
-  z-index: 0;
+#menubutton button{
+border: none;
 }
 
-#cornerbutton img{
-  z-index: 1;
-  background: white;
+#menubutton #mainmenubnt{
+  height: 8dvh;
+  background: none;
+  z-index: 100;
+}
+
+.submenu{
+  display: none;
+  background: black;
+}
+
+.active {
+  display: flex;
+}
+
+.active:nth-child(2){
+  height: 5dvh;
+  width: 5dvh;
+
+  border: .35dvh solid #071739; 
+  border-radius: 50%;
+  
+  outline: #071739 outset .5dvh;
+  outline-offset:  .3dvh;
+
+  position: absolute;
+  transition-duration: 1s;
+  transform: translate(-9.3dvh, 0);
+  transition-timing-function: ease-in-out;
+}
+
+.active:nth-child(3){
+  height: 5dvh;
+  width: 5dvh;
+
+  border: .35dvh solid #071739; 
+  border-radius: 50%;
+  
+  outline: #071739 outset .5dvh;
+  outline-offset:  .3dvh;
+
+  position: absolute;
+  transition-duration: 1s;
+  transform: translate(-6.7dvh, -6.7dvh);
+  transition-timing-function: ease-in-out;
+}
+
+.active img{
+  height: 90%;
+  width: 90%;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.active:nth-child(4){
+  height: 5dvh;
+  width: 5dvh;
+
+  border: .35dvh solid #071739; 
+  border-radius: 50%;
+  
+  outline: #071739 outset .5dvh;
+  outline-offset:  .3dvh;
+
+  position: absolute;
+  transition-duration: 1s;
+   transform: translate(0, -9.3dvh);
+  transition-timing-function: ease-in-out;
+}
+
+#addmenu{
+  border-radius: 3dvh;
+  height: 35dvh;
+  width: 20dvw;
+  background: #709fdc;
+  border: #63a583 solid .3dvh;
+  position: fixed; 
+  top: 53%;
+  left: 67%;
+  font-size: 10dvh;
+
+  flex-direction: column; 
+  text-align: center;
+  overflow-x: hidden;
+  overflow-y: scroll;
+}
+
+#menulocation{
+  display: flex;
+  justify-content: space-between;
+  border-bottom: #63a583 solid .1dvh;
+  padding: 0 .2dvh 0 .2dvh;
+  width: 100%;
+  height: 5dvh;
+  background: #274684;
+}
+
+#menusubmit{
+  position: absolute;
+  bottom: 0;
+  justify-content: space-around;
+  border-bottom: #63a583 solid .25dvh;
+  
+  display: flex;
+  flex-direction: row;
+
+  padding: 0 .2dvh 0 .2dvh;
+  width: 100%;
+  height: 3dvh;
+  background: #274684;
+  border-top: #63a583 solid .1dvh;
+}
+
+#menusubmit button{
+  width: 100%;
+  background: none;
+  border: none;
+  border-right: #63a583 solid .1dvh;
+}
+
+#menulocation button{
+  flex-grow: 1;
+  background: none;
+  border: none;
+  font-size: 4dvh;
+}
+
+.menuactive{
+  display: flex;
+}
+
+#eventaddform{
+  background: none;
+  flex-direction: column;
+  font-size: 1rem;  
+
+}
+
+#eventaddform .formsubmenu input{
+  height: 4dvh;
+  width: 95%;
+  background: none;
+  border: #274684 inset .3dvh; 
+}
+
+.submitbutton{
+  height: 3dvh;
+  width: 100%;
+  background:none;
+  border:none;
 }
